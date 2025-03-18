@@ -1,0 +1,4 @@
+Optimized Feature Configuration:
+------------------------------
+expert_1: ['manu_37', '13', '14', '29']
+expert_2: ['28', '40', 'Sum', 'entropy30']

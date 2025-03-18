@@ -1,0 +1,26 @@
+Random Forest Results
+==============================
+
+Best Parameters:
+criterion: gini
+max_depth: 5
+min_samples_leaf: 1
+min_samples_split: 2
+n_estimators: 100
+
+Out-of-Bag Score: 0.7429
+
+Validation Set Metrics:
+accuracy: 0.7791
+precision: 1.0000
+recall: 0.7791
+f1: 0.8758
+auroc: nan
+
+Test Set Metrics:
+accuracy: 0.7575
+precision: 0.7899
+recall: 0.7015
+f1: 0.7431
+specificity: 0.8134
+auroc: 0.7905

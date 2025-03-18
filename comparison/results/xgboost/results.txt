@@ -1,0 +1,31 @@
+XGBoost Results
+==============================
+
+Model Parameters:
+objective: binary:logistic
+eval_metric: ['error', 'logloss']
+max_depth: 4
+min_child_weight: 1
+learning_rate: 0.1
+subsample: 0.8
+colsample_bytree: 0.8
+scale_pos_weight: 2.4
+tree_method: hist
+random_state: 42
+
+Best Iteration: 8
+
+Validation Set Metrics:
+accuracy: 0.6316
+precision: 1.0000
+recall: 0.6316
+f1: 0.7742
+specificity: 0.0000
+auroc: N/A
+
+Test Set Metrics:
+accuracy: 0.9034
+precision: 0.8901
+recall: 0.9205
+f1: 0.9050
+auroc: 0.9642

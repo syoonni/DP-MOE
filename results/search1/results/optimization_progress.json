@@ -1,0 +1,108 @@
+{
+    "all_results": [
+        {
+            "combination_number": 1,
+            "expert_1_order": [
+                "28",
+                "manu_37",
+                "13",
+                "29",
+                "14",
+                "40"
+            ],
+            "expert_2_order": [
+                "entropy30",
+                "entropy29",
+                "entropy28",
+                "entropy13",
+                "entropy14"
+            ],
+            "metrics": {
+                "accuracy": 0.9034090638160706,
+                "precision": 0.8817204236984253,
+                "recall": 0.9318181818181818,
+                "specificity": 0.875,
+                "f1": 0.9060773253440857,
+                "auroc": 0.9435691833496094
+            }
+        },
+        {
+            "combination_number": 2,
+            "expert_1_order": [
+                "28",
+                "manu_37",
+                "13",
+                "29",
+                "14",
+                "40"
+            ],
+            "expert_2_order": [
+                "entropy30",
+                "entropy29",
+                "entropy28",
+                "entropy14",
+                "entropy13"
+            ],
+            "metrics": {
+                "accuracy": 0.9034090638160706,
+                "precision": 0.8817204236984253,
+                "recall": 0.9318181818181818,
+                "specificity": 0.875,
+                "f1": 0.9060773253440857,
+                "auroc": 0.9517045617103577
+            }
+        },
+        {
+            "combination_number": 3,
+            "expert_1_order": [
+                "28",
+                "manu_37",
+                "13",
+                "29",
+                "14",
+                "40"
+            ],
+            "expert_2_order": [
+                "entropy30",
+                "entropy29",
+                "entropy13",
+                "entropy28",
+                "entropy14"
+            ],
+            "metrics": {
+                "accuracy": 0.9034090638160706,
+                "precision": 0.8817204236984253,
+                "recall": 0.9318181818181818,
+                "specificity": 0.875,
+                "f1": 0.9060773253440857,
+                "auroc": 0.9486053586006165
+            }
+        }
+    ],
+    "best_ordering": {
+        "expert_1": [
+            "28",
+            "manu_37",
+            "13",
+            "29",
+            "14",
+            "40"
+        ],
+        "expert_2": [
+            "entropy30",
+            "entropy29",
+            "entropy28",
+            "entropy13",
+            "entropy14"
+        ]
+    },
+    "best_results": {
+        "accuracy": 0.9034090638160706,
+        "precision": 0.8817204236984253,
+        "recall": 0.9318181818181818,
+        "specificity": 0.875,
+        "f1": 0.9060773253440857,
+        "auroc": 0.9435691833496094
+    },
+    "timestamp": "2025-02-17 15:22:37"
+}

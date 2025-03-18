@@ -1,0 +1,68 @@
+Decision Tree Results
+==============================
+
+Best Parameters:
+criterion: gini
+max_depth: 4
+min_samples_leaf: 1
+min_samples_split: 2
+
+Validation Set Metrics:
+accuracy: 0.6860
+precision: 1.0000
+recall: 0.6860
+f1: 0.8138
+specificity: 0.0000
+auroc: nan
+
+Test Set Metrics:
+accuracy: 0.7425
+precision: 0.7876
+recall: 0.6642
+f1: 0.7206
+auroc: 0.7395
+
+Tree Structure:
+|--- 13 <= -0.18
+|   |--- 13 <= -1.00
+|   |   |--- manu_37 <= 0.07
+|   |   |   |--- entropy28 <= -1.01
+|   |   |   |   |--- class: 1
+|   |   |   |--- entropy28 >  -1.01
+|   |   |   |   |--- class: 1
+|   |   |--- manu_37 >  0.07
+|   |   |   |--- entropy14 <= 0.25
+|   |   |   |   |--- class: 1
+|   |   |   |--- entropy14 >  0.25
+|   |   |   |   |--- class: 0
+|   |--- 13 >  -1.00
+|   |   |--- 29 <= -1.99
+|   |   |   |--- class: 0
+|   |   |--- 29 >  -1.99
+|   |   |   |--- entropy30 <= -0.71
+|   |   |   |   |--- class: 0
+|   |   |   |--- entropy30 >  -0.71
+|   |   |   |   |--- class: 1
+|--- 13 >  -0.18
+|   |--- manu_37 <= -0.48
+|   |   |--- entropy13 <= 1.54
+|   |   |   |--- 29 <= -1.78
+|   |   |   |   |--- class: 0
+|   |   |   |--- 29 >  -1.78
+|   |   |   |   |--- class: 1
+|   |   |--- entropy13 >  1.54
+|   |   |   |--- 29 <= -0.85
+|   |   |   |   |--- class: 1
+|   |   |   |--- 29 >  -0.85
+|   |   |   |   |--- class: 0
+|   |--- manu_37 >  -0.48
+|   |   |--- entropy29 <= 1.02
+|   |   |   |--- entropy13 <= 1.15
+|   |   |   |   |--- class: 0
+|   |   |   |--- entropy13 >  1.15
+|   |   |   |   |--- class: 1
+|   |   |--- entropy29 >  1.02
+|   |   |   |--- 29 <= 0.51
+|   |   |   |   |--- class: 1
+|   |   |   |--- 29 >  0.51
+|   |   |   |   |--- class: 0

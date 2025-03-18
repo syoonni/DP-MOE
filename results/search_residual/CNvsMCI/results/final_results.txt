@@ -1,0 +1,14 @@
+Expert Feature Order Optimization Results
+==================================================
+
+Best Feature Ordering:
+expert_1: ['13', '28', '29', 'manu_37', '40', 'Sum', '14']
+expert_2: ['entropy13', 'entropy30', 'entropy28', 'entropy14', 'entropy29']
+
+Best Metrics:
+accuracy: 0.8284
+precision: 0.8188
+recall: 0.8433
+specificity: 0.8134
+f1: 0.8309
+auroc: 0.8414

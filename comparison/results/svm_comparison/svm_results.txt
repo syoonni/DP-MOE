@@ -1,0 +1,8 @@
+SVM Model Results
+==============================
+accuracy: 0.9148
+precision: 0.8842
+recall: 0.9545
+f1: 0.9180
+specificity: 0.8750
+auroc: 0.9557

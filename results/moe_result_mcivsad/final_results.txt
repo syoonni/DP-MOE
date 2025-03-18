@@ -1,0 +1,14 @@
+MoE Model Final Results:
+------------------------------
+Performance Metrics:
+accuracy: 0.7345
+precision: 0.7113
+recall: 0.7841
+specificity: 0.6854
+f1: 0.7459
+auroc: 0.7656
+
+Expert Configuration:
+------------------------------
+expert_1: ['manu_37', '40', '13']
+expert_2: ['entropy30', '29', '14']

@@ -1,0 +1,5 @@
+Total incorrect predictions: 47
+
+Expert Weight Statistics for Incorrect Predictions:
+Expert 1: 0.4769 ± 0.0962
+Expert 2: 0.5231 ± 0.0962
