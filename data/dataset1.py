@@ -11,11 +11,10 @@ class TensorDataMOE(Dataset):
     def __init__(self, x_data, y_data, ids, expert_features):
         self.x_data = torch.FloatTensor(x_data)
         self.y_data = torch.LongTensor(y_data)
-        self.ids = torch.LongTensor(ids)  # ids를 텐서로 변환
+        self.ids = torch.LongTensor(ids)  
         self.len = self.y_data.shape[0]
         self.expert_features = expert_features
         
-        # 전체 feature 리스트에서 각 expert의 feature index 찾기
         self.expert_indices = {}
         self.all_features = []
         for features in expert_features.values():
@@ -26,7 +25,6 @@ class TensorDataMOE(Dataset):
             self.expert_indices[expert_name] = indices
 
     def __getitem__(self, index):
-        # 각 expert에 대한 입력 준비
         expert_inputs = {}
         for expert_name, indices in self.expert_indices.items():
             expert_inputs[expert_name] = self.x_data[index, indices]
@@ -56,7 +54,6 @@ class AlzheimerDataset:
         self.std = std
         self.common_ids = common_ids
 
-        # 데이터 분할 결과를 인스턴스 변수로 저장
         self.data_splits = None
         
     def load_and_split_data(self):
@@ -90,7 +87,6 @@ class AlzheimerDataset:
             self.mean = mean
             self.std = std
 
-            #################형진 코드 추가_데이터 세트1:1###################
             mask_0 = (Y == 0)
             mask_1 = (Y == 1)
 
@@ -118,8 +114,7 @@ class AlzheimerDataset:
             X_train, X_val, Y_train, Y_val, ids_train, ids_val = train_test_split(
                 X_train_val, Y_train_val, ids_train_val, test_size=0.1, shuffle=False
             )
-            
-            # 분할된 데이터를 인스턴스 변수로 저장
+
             self.data_splits = {
                 'train': (X_train, Y_train, ids_train),
                 'val': (X_val, Y_val, ids_val),
@@ -132,8 +127,7 @@ class AlzheimerDataset:
         """Create DataLoader objects for all splits"""
         if expert_features is None:
             raise ValueError("expert_features must be provided")
-            
-        # data_splits가 None이면 load_and_split_data 호출
+
         if self.data_splits is None:
             self.data_splits = self.load_and_split_data()
         
@@ -149,7 +143,7 @@ class AlzheimerDataset:
                 batch_size=batch_size, 
                 shuffle=shuffle,
                 generator=g,
-                num_workers=0,  # 디버깅을 위해 0으로 설정
+                num_workers=0, 
                 pin_memory=True if torch.cuda.is_available() else False
             )
             
