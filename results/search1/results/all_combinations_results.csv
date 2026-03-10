@@ -1,4 +1,0 @@
-combination_number,expert_1_order,expert_2_order,metrics
-1,"['28', 'manu_37', '13', '29', '14', '40']","['entropy30', 'entropy29', 'entropy28', 'entropy13', 'entropy14']","{'accuracy': 0.9034090638160706, 'precision': 0.8817204236984253, 'recall': np.float64(0.9318181818181818), 'specificity': 0.875, 'f1': 0.9060773253440857, 'auroc': 0.9435691833496094}"
-2,"['28', 'manu_37', '13', '29', '14', '40']","['entropy30', 'entropy29', 'entropy28', 'entropy14', 'entropy13']","{'accuracy': 0.9034090638160706, 'precision': 0.8817204236984253, 'recall': np.float64(0.9318181818181818), 'specificity': 0.875, 'f1': 0.9060773253440857, 'auroc': 0.9517045617103577}"
-3,"['28', 'manu_37', '13', '29', '14', '40']","['entropy30', 'entropy29', 'entropy13', 'entropy28', 'entropy14']","{'accuracy': 0.9034090638160706, 'precision': 0.8817204236984253, 'recall': np.float64(0.9318181818181818), 'specificity': 0.875, 'f1': 0.9060773253440857, 'auroc': 0.9486053586006165}"
