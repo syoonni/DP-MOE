@@ -46,12 +46,11 @@ class MoEEvaluator:
         all_predictions = []
         all_targets = []
         all_gate_weights = []
-        all_expert_outputs = {}  # 딕셔너리로 초기화
+        all_expert_outputs = {} 
         all_ids = []
 
         with torch.no_grad():
             for batch in test_loader:
-                # 새로운 데이터 형식에 맞게 데이터 추출
                 expert_inputs = {
                     name: data.to(self.device) 
                     for name, data in batch['inputs'].items()
@@ -66,7 +65,7 @@ class MoEEvaluator:
                 all_targets.append(target)
                 all_gate_weights.append(gate_weights)
 
-                # Expert outputs 처리
+                # Expert outputs
                 for name, output in expert_outputs.items():
                     if name not in all_expert_outputs:
                         all_expert_outputs[name] = []
@@ -74,7 +73,6 @@ class MoEEvaluator:
 
                 all_ids.extend(ids.cpu().numpy())
 
-        # 모든 배치의 결과를 하나로 합치기
         predictions = torch.cat(all_predictions, dim=0)
         targets = torch.cat(all_targets, dim=0)
         gate_weights = torch.cat(all_gate_weights, dim=0)
