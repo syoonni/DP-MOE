@@ -9,17 +9,6 @@ from network.moe import MOE
 from training.trainer import MoETrainer
 from evaluation.evaluator import MoEEvaluator
 
-def reset_random_seeds():
-    """Reset all random seeds for reproducibility"""
-    os.environ['CUBLAS_WORKSPACE_CONFIG'] = ':4096:8'
-    torch.manual_seed(777)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(777)
-        torch.backends.cudnn.deterministic = True
-        torch.backends.cudnn.benchmark = False
-    np.random.seed(777)
-    torch.use_deterministic_algorithms(True)
-
 def main():
     # Setup
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -28,14 +17,13 @@ def main():
     # Configuration
     labels = ['CN', 'AD']
     sex = 'A'
-    num_epochs = 1
+    num_epochs = 100
     batch_size = 32
-    #patience = 5
 
     # Define expert feature groups
     expert_features = {
-        'expert_1': ['28', 'Sum', 'manu_37', '29', '13', '14', '40'],
-        'expert_2': ['entropy28', 'entropy14', 'entropy13', 'entropy29', 'entropy30']  
+        'expert_1': ['Amygdala(rh)-vol', 'Amygdala(lh)-vol', 'Entorhinal-vol', 'Hippocampus(rh)-vol', 'Hippocampus(lh)-vol'],
+        'expert_2': ['Amygdala(rh)-entropy', 'Amygdala(lh)-entropy', 'Entorhinal-entropy', 'Hippocampus(rh)-entropy', 'Hippocampus(lh)-entropy']  
     }
 
     # Calculate dimensions for each expert
@@ -48,7 +36,7 @@ def main():
     os.makedirs(results_dir, exist_ok=True)
 
     # Data paths and features
-    data_path = '/root/Project/ClassifyProject/Ensemble/AlzheimerDataset/fast_data + manual.csv'
+    data_path = 'data.csv'
 
     # Combine all features for dataset loading
     all_features = []
@@ -62,8 +50,7 @@ def main():
         labels=labels,
         sex=sex
     )
-    
-    # 클래스 가중치 계산
+
     data_splits = dataset.load_and_split_data()
     x_train, y_train, _ = data_splits['train']
     classes = np.unique(y_train)
@@ -103,7 +90,6 @@ def main():
     )
 
     # Train the model
-    # Train the model with early stopping
     trainer.train(
         train_loader=dataloaders['train'],
         val_loader=dataloaders['val'],
