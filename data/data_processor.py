@@ -12,7 +12,7 @@ class Dataprocessor:
         upper_bound = np.quantile(data, axis=1, q=high, method='nearest', keepdims=True)
         return lower_bound, upper_bound
     
-    def extract_label(S, X, Y, ids, labels=['CN', 'AD'], sex = 'A'): # 두번째 꺼(extract_label2)
+    def extract_label(S, X, Y, ids, labels=['CN', 'AD'], sex = 'A'): 
         """Extract and process labels"""
         X2 = []
         Y2 = []
@@ -47,7 +47,7 @@ class Dataprocessor:
         return X2, Y2, ids2 
     
     @staticmethod
-    def gaussian(X): # train data에 대한 gaussian normalization
+    def gaussian(X): 
         """Gaussian normalization with outlier clipping"""
         X = X.T
         Zmin, Zmax = Dataprocessor.extract_limit(X)
@@ -59,7 +59,7 @@ class Dataprocessor:
         return X, mean, std
     
     @staticmethod
-    def gaussian2(X, mean, std): # test data에 대한 gaussian normalization
+    def gaussian2(X, mean, std):
         """Apply pre-computed gaussian noramlization"""
         X = X.T
         Zmin, Zmax = Dataprocessor.extract_limit(X)
