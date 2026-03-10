@@ -1,8 +1,0 @@
-Logistic_Regression Model Results
-==============================
-accuracy: 0.7425
-precision: 0.7731
-recall: 0.6866
-f1: 0.7273
-specificity: 0.7985
-auroc: 0.7984
