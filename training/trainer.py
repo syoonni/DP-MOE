@@ -4,9 +4,7 @@ import torch.optim as optim
 import numpy as np
 import pandas as pd
 import copy
-import matplotlib
 import matplotlib.pyplot as plt
-matplotlib.use('Agg') 
 import os
 from sklearn.metrics import roc_curve, auc
 from data.data_processor import Dataprocessor
@@ -64,13 +62,10 @@ class MoETrainer:
             
             self.optimizer.zero_grad()
             
-            # 모델 forward pass
             combined_out, gate_weights, expert_outputs, residual_out = self.model(expert_inputs)
-            
-            # 기본 confidence를 1로 설정 (모든 샘플에 동일한 가중치)
+
             confidences = torch.ones(targets.size(0), device=self.device)
-            
-            # Loss 계산 (MoELoss 사용)
+
             loss = self.criterion(combined_out, expert_outputs, gate_weights, targets, confidences)
             
             loss.backward()
@@ -78,15 +73,9 @@ class MoETrainer:
             
             total_loss += loss.item()
             
-            # Accuracy 계산
             _, predicted = combined_out.max(1)
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
-            
-            if batch_idx % 10 == 0:  # 진행상황 출력
-                print(f'Batch [{batch_idx}/{len(train_loader)}], '
-                    f'Loss: {loss.item():.4f}, '
-                    f'Acc: {100. * correct/total:.2f}%')
         
         return total_loss / len(train_loader), correct / total
 
@@ -107,14 +96,11 @@ class MoETrainer:
                     for name, data in batch['inputs'].items()
                 }
                 targets = batch['targets'].to(self.device)
-                
-                # 모델 forward pass
+
                 combined_out, gate_weights, expert_outputs, residual_out = self.model(expert_inputs)
-                
-                # 기본 confidence를 1로 설정
+
                 confidences = torch.ones(targets.size(0), device=self.device)
-                
-                # Loss 계산
+
                 loss = self.criterion(combined_out, expert_outputs, gate_weights, targets, confidences)
                 
                 total_loss += loss.item()
@@ -155,10 +141,9 @@ class MoETrainer:
 
         for epoch in range(num_epochs):
             train_loss, train_acc = self.train_epoch(train_loader)
-            
-            # Validate와 반환값 처리 수정
+
             val_metrics = self.validate(val_loader)
-            val_loss, val_acc = val_metrics[:2]  # 앞의 두 값만 사용
+            val_loss, val_acc = val_metrics[:2] 
 
             # Store metrics
             train_losses.append(train_loss)
